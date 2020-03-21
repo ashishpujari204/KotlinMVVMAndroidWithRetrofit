@@ -77,12 +77,12 @@ class LoginActivity : BaseActivity() {
         loginViewModel.callLoginAPI(mobile.toString(), password.toString())
             .observe(this@LoginActivity, Observer<User> {
                 stopProgressDialog()
-                if (it != null && it?.blockUser?.isNotEmpty()) {
+                if (it != null && it.blockUser.isNotEmpty()) {
                     Constants.saveUser(this@LoginActivity, it)
                     var loginIntent: Intent? = null
 
-                    if (it?.blockUser == "0") {
-                        when (it?.role) {
+                    if (it.blockUser == "0") {
+                        when (it.role) {
 
                         }
                     } else {
